@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-light">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="darkmode.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>FN Florist</title>
+
+</head>
+<body class="container">
+
+
+
+<div id="app" >
+    <h1>Pemesanan Papan Bunga </h1>
+    <!-- <h2>{{title}}
+        <br>{{deskripsi}} -->
+        <h5>Dark Mode</h5>
+        <label id="switch" class="switch">
+        <input type="checkbox" onchange="toggleTheme()" id="slider">
+        <span class="slider round"></span>
+        </label>
+        <br>
+<br>
+
+<button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">Order</button>
+<a href="pengembalian.html" target="_blank" ><button class="btn btn-primary"> Pengembalian </button></a>
+
+<br>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Silakan Input Pesanan</h5>
+          <button type="button" class="close"data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Nama:</label>
+              <input type="text" v-model="nama" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Alamat:</label>
+                <input type="text" v-model="alamat" class="form-control" >
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Banyak Pesanan:</label>
+                <input type="text" v-model="banyak_pesanan" class="form-control" >
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Tanggal pemesanan:</label>
+                <input type="text" v-model="tanggal_pesan" class="form-control" >
+              </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Ucapan:</label>
+              <textarea class="form-control" v-model="ucapan"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button v-on:click="save" type="button" class="btn btn-primary" >Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+        <!-- <br>{{datamahasiswa}} -->
+        <!-- <ul v-for="row in datamahasiswa"> 
+            <li>{{row.nama}}</li>
+            <li>{{row.jurusan}}</li> </ul> -->
+
+<br>
+            <table   class=" w3-table" >
+                <thead class="w3-aqua"><tr>
+                    <th> Nama</th>
+                        <th>Alamat</th>
+                        <th>Banyak pemesanan</th>
+                        <th> Tanggal pemesanan</th>
+                        <th>Ucapan</th>
+                        </tr>
+                </thead>
+                <tbody v-for="data in data_pesanan"  >
+                    <tr class="w3-sand">
+                        <td >{{data.nama}}</td>
+                        <td>{{data.alamat}}</td>
+                        <td>{{data.banyak_pesanan}}</td>
+                        <td>{{data.tanggal_pesan}}</td>
+                        <td>{{data.ucapan}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            
+    </h2>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://docs.vuejs.id/js/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  function setTheme(themeName) {
+localStorage.setItem('theme', themeName);
+document.documentElement.className = themeName;
+}
+// function to toggle between light and dark theme
+function toggleTheme() {
+if (localStorage.getItem('theme') === 'theme-dark') {
+setTheme('theme-light');
+} else {
+setTheme('theme-dark');
+}
+}
+// Immediately invoked function to set the theme on initial load
+(function () {
+if (localStorage.getItem('theme') === 'theme-dark') {
+setTheme('theme-dark');
+document.getElementById('slider').checked = false;
+} else {
+setTheme('theme-light');
+document.getElementById('slider').checked = true;
+}
+})();
+</script>
+    <script> let vm= new Vue({
+        el:"#app",
+        data:{
+            title :"DATA API MAHASISWA",
+            deskripsi:"DATA MAHASISWA MDP",
+            data_pesanan:null,
+            nama: null,
+            alamat:null,
+            banyak_pesanan:null,
+            tanggal_pesan:null,
+            ucapan:null
+
+        },
+
+        methods:{
+            save: function(){
+                console.log("berhasil");
+                let _data={
+            nama: this.nama,
+            alamat: this.alamat,
+            banyak_pesanan: this.banyak_pesanan,
+            tanggal_pesan:this.tanggal_pesan,
+            ucapan:this.ucapan
+                }
+                axios
+                .post('https://node-api-uas.vercel.app/pemesanan',_data)
+                .then(Response=>{console.log(Response);})
+                .catch(error=>{console.log(error);})
+            }
+        },
+        mounted(){
+            axios
+            .get('https://node-api-uas.vercel.app/pemesanan')
+            .then(Response=>{
+                console.log(Response);
+                this.data_pesanan = Response.data
+            })
+        },
+        
+    })</script>
+</body>
+</html>
+
+
