@@ -171,16 +171,20 @@ document.getElementById('slider').checked = true;
                 .delete('https://node-api-uas.vercel.app/pemesanan/'+ id)
                 .then(Response=>{
                   console.log(Response)
+                  this.getpesanan()
                 })
-            }
-        },
-        mounted(){
-            axios
+            },
+            getpesanan:function(){
+              axios
             .get('https://node-api-uas.vercel.app/pemesanan')
             .then(Response=>{
                 console.log(Response);
                 this.data_pesanan = Response.data
             })
+            }
+        },
+        mounted(){
+            this.getpesanan()
         },
         
     })</script>
