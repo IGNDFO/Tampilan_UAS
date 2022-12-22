@@ -86,6 +86,7 @@
                         <th>Banyak pemesanan</th>
                         <th> Tanggal pemesanan</th>
                         <th>Ucapan</th>
+                        <th>Hapus</th>
                         </tr>
                 </thead>
                 <tbody v-for="data in data_pesanan"  >
@@ -95,6 +96,8 @@
                         <td>{{data.banyak_pesanan}}</td>
                         <td>{{data.tanggal_pesan}}</td>
                         <td>{{data.ucapan}}</td>
+                        <td><button class="btn btn-danger" v-on:click="delete_pesan(data._id)">Hapus</button></td>
+                        
                     </tr>
                 </tbody>
             </table>
@@ -102,6 +105,7 @@
             
     </h2>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://docs.vuejs.id/js/vue.js"></script>
@@ -156,8 +160,18 @@ document.getElementById('slider').checked = true;
                 }
                 axios
                 .post('https://node-api-uas.vercel.app/pemesanan',_data)
-                .then(Response=>{console.log(Response);})
+                
+                .then(Response=>{console.log(Response);
+                  $('#exampleModal').modal('hide');})
                 .catch(error=>{console.log(error);})
+            },
+            delete_pesan: function(id){
+                console.log("hapus berhasil")
+                axios
+                .delete('https://node-api-uas.vercel.app/pemesanan/'+ id)
+                .then(Response=>{
+                  console.log(Response)
+                })
             }
         },
         mounted(){
