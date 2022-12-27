@@ -16,7 +16,7 @@
     transform:translateY(-50%);
     user-select:none;
   }
-  .content{
+  .content1{
     position: absolute;
     z-index:999;
     color:#fff;
