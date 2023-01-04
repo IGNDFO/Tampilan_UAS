@@ -58,3 +58,9 @@ header{
     text-align: right;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+li
+    {
+    display: flex;
+    list-style-type: none;
+    float: right;
+    }
