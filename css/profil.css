@@ -1,0 +1,185 @@
+*, html, body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  Helvetica;
+}
+img
+{
+    width: auto;
+    height: auto;
+}
+.img-foto
+{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    padding: 10px;
+}
+.logo
+{
+    margin-right: auto;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: all .5s ease 0s;
+}
+
+.logo:hover
+{
+    color: chartreuse;
+    transform: rotate(10deg);
+}
+
+header
+{
+    background: rgb(0, 15, 126);
+    color: #eaeaea;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.container
+{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:  80px 0;
+}
+
+.intro
+{
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.title
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.description
+{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+nav ul
+{
+    display: flex;
+    padding: 15px;
+}
+
+li
+{
+    list-style-type: none;
+    padding: 20px;
+}
+
+li a
+{
+    display: inline-block;
+    transition: all .5s ease 0s;
+}
+
+li a:hover
+{
+    color:yellow ;
+    transform: rotate(5deg);
+}
+
+a
+{
+    color: #eaeaea;
+    text-decoration: none;
+    border: none    ;
+}
+
+.parallax
+{
+    max-height: max-content;
+    background-image: url('/image/logo.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.tentang
+{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: darkblue;
+    color: #eaeaea;
+    padding: 40px;
+}
+
+.card
+{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 8px;
+}
+
+.card-item
+{
+    width: 20%;
+    background: #f7f7ff;
+    color: #222;
+    padding: 24px;
+}
+
+.btn-cta
+{
+        margin-right: 10px;
+        border: none;
+        font-size: 18px;
+        padding: 6px 12px;
+        background: rgb(210, 0, 0);
+        color: #eaeaea;
+        border-radius: 8px;
+        cursor: pointer;
+}
+.mt-10
+{
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 500px)
+{
+    .card
+    {
+        flex-direction: column;
+    }
+    .card-item
+    {
+        width: 100%;
+    }
+    .container
+    {
+        width: 100%;
+        padding: 0;
+    }
+    .intro
+    {
+        margin-top: 20px;
+    }
+    .img-foto
+    {
+        padding: 0;
+    }
+}
