@@ -168,7 +168,7 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(25, 25, 25, 0.95);
+  background: rgba(26, 35, 17, 0.95);
   transition: all 0.5s;
   z-index: 997;
   height: 70px;
@@ -431,7 +431,7 @@ h6 {
 #hero {
   width: 100%;
   height: calc(100vh - 110px);
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/flower.jfif") top center;
   background-size: cover;
   position: relative;
 }
@@ -1294,7 +1294,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #0c0c0c;
+  background: #1d1d1f;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -1306,9 +1306,9 @@ section {
 
 #footer .footer-top .footer-info {
   margin-bottom: 15px;
-  background: #191919;
+  background: #ff0000;
   color: #fff;
-  border-top: 4px solid #cc1616;
+  border-top: 4px solid #ffffff;
   text-align: center;
   padding: 30px 20px;
 }
